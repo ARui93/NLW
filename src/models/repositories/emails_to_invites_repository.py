@@ -1,7 +1,7 @@
 from typing import Dict, Tuple, List
 from sqlite3 import Connection
 
-class EmailsToRepository:
+class EmailsToInvitesRepository:
     def __init__(self, conn: Connection) -> None:
         self.__conn = conn 
 
