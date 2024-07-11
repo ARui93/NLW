@@ -1,16 +1,16 @@
 import pytest
 import uuid
 from .links_repository import LinksRepository
-from src.models.settings.db_connection_handler import db_connetion_handler
+from src.models.settings.db_connection_handler import db_connection_handler
 
-db_connetion_handler.connect()
+db_connection_handler.connect()
 
 link_id = str(uuid.uuid4())
 trip_id = str(uuid.uuid4())
 
 @pytest.mark.skip(reason="Interação com o banco")
 def test_registry_link():
-    conn = db_connetion_handler.get_connection()
+    conn = db_connection_handler.get_connection()
     link_repository =LinksRepository(conn)
 
     link_infos = {
@@ -25,7 +25,7 @@ def test_registry_link():
 
 @pytest.mark.skip(reason="Interação com o banco")
 def test_find_links_from_trip():
-    conn = db_connetion_handler.get_connection()
+    conn = db_connection_handler.get_connection()
     link_repository =LinksRepository(conn)
 
     response = link_repository.find_links_from_trip(trip_id)
